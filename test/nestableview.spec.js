@@ -66,7 +66,7 @@ describe('Backbone.CWM.NestableView', function() {
           innerView = new InnerView();
         });
 
-        describe('attached', function() {
+        describe('replace', function() {
           beforeEach(function() {
             outerView.addView('.nest', innerView, true);
           });
@@ -83,7 +83,7 @@ describe('Backbone.CWM.NestableView', function() {
           });
         });
 
-        describe('not attached', function() {
+        describe('not replace', function() {
           beforeEach(function() {
             outerView.addView('.nest', innerView, false);
           });
@@ -112,7 +112,7 @@ describe('Backbone.CWM.NestableView', function() {
           innerView2 = new InnerView();
         });
 
-        describe('attached', function() {
+        describe('replace', function() {
           beforeEach(function() {
             outerView.addView('.nest', innerView, true);
             innerView.addView('.nest', innerView2, true);
@@ -132,7 +132,7 @@ describe('Backbone.CWM.NestableView', function() {
           });
         });
 
-        describe('not attached, single layer', function() {
+        describe('not replace, single layer', function() {
           beforeEach(function() {
             outerView.addView('.nest', innerView, false);
             outerView.addView('.nest', innerView2, false);
@@ -156,7 +156,7 @@ describe('Backbone.CWM.NestableView', function() {
           });
         });
 
-        describe('not attached, double layer', function() {
+        describe('not replace, double layer', function() {
           beforeEach(function() {
             outerView.addView('.nest', innerView, false);
             innerView.addView('.nest', innerView2, false);
@@ -228,7 +228,7 @@ describe('Backbone.CWM.NestableView', function() {
 
       describe('#selector', function() {
         describe('when null', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               outerView.addView(null, buttonView, true);
             });
@@ -239,7 +239,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               outerView.addView(null, buttonView, false);
             });
@@ -252,7 +252,7 @@ describe('Backbone.CWM.NestableView', function() {
         });
 
         describe('when empty string (\'\')', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               outerView.addView('', buttonView, true);
             });
@@ -263,7 +263,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               outerView.addView('', buttonView, false);
             });
@@ -276,7 +276,7 @@ describe('Backbone.CWM.NestableView', function() {
         });
 
         describe('when valid (matches valid child element) (\'.nest\')', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               outerView.addView('.nest', buttonView, true);
             });
@@ -288,7 +288,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               outerView.addView('.nest', buttonView, false);
             });
@@ -302,7 +302,7 @@ describe('Backbone.CWM.NestableView', function() {
         });
 
         describe('when not valid (does not match a child element) (\'.xxx\')', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               outerView.addView('.xxx', buttonView, true);
             });
@@ -314,7 +314,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               outerView.addView('.xxx', buttonView, false);
             });
@@ -388,7 +388,7 @@ describe('Backbone.CWM.NestableView', function() {
 
       describe('#attachEnabled', function() {
         describe('when true', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, true);
               buttonViewMeta.attachEnabled = true;
@@ -406,7 +406,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, false);
               buttonViewMeta.attachEnabled = true;
@@ -426,7 +426,7 @@ describe('Backbone.CWM.NestableView', function() {
         });
 
         describe('when false', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, true);
               buttonViewMeta.attachEnabled = false;
@@ -444,7 +444,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, false);
               buttonViewMeta.attachEnabled = false;
@@ -464,7 +464,7 @@ describe('Backbone.CWM.NestableView', function() {
         });
 
         describe('when set to false after the initial render', function() {
-          describe('when #attached == true', function() {
+          describe('when #replace == true', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, true);
               buttonViewMeta.attachEnabled = true;
@@ -486,7 +486,7 @@ describe('Backbone.CWM.NestableView', function() {
             });
           });
 
-          describe('when #attached == false', function() {
+          describe('when #replace == false', function() {
             beforeEach(function() {
               buttonViewMeta = outerView.addView('.nest', buttonView, false);
               buttonViewMeta.attachEnabled = true;

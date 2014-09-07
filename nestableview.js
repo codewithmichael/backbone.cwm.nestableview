@@ -25,11 +25,11 @@
       return this.template({ data: data });
     },
 
-    addView: function(selector, view, attached) {
+    addView: function(selector, view, replace) {
       var meta = {
         selector: selector || '',
         view: view,
-        attached: !!attached,
+        replace: !!replace,
         renderEnabled: true,
         attachEnabled: true
       };
@@ -45,7 +45,7 @@
         for (var i = this.views.length - 1; i >= 0; i--) {
           var meta = this.views[i];
           var selector = meta.selector || '';
-          if (meta.attached && selector) {
+          if (meta.replace && selector) {
             // Attached views
             meta.view.$el.detach();
           } else {
@@ -84,7 +84,7 @@
             var selector = meta.selector || '';
             var $selectorEl = selector ? this.$el.find(selector) : this.$el;
             if ($selectorEl.length) {
-              if (meta.attached && selector) {
+              if (meta.replace && selector) {
                 // Attached views
                 // Replace the selector element with the view element
                 $selectorEl.replaceWith(meta.view.el);
