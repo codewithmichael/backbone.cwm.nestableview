@@ -58,6 +58,4 @@ appView.addView('.button-goes-here', new ButtonView(), true);
 appView.render();
 ```
 
-In case of multiple matched elements, it will replace the first one found.
-
-If multiple views are added with the same selector, they will replace each macthed element in order.
+In case of multiple matched elements, it will replace the first one found. If multiple views are added with the same selector, they will replace each matched element in sequence.
