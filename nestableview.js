@@ -56,7 +56,8 @@
                 viewFragment = document.createDocumentFragment();
                 viewFragments[selector] = viewFragment;
               }
-              viewFragment.appendChild(meta.view.el);
+              // insert at beginning since we are iterating backwards
+              viewFragment.insertBefore(meta.view.el, viewFragment.firstChild);
             } else {
               meta.view.$el.detach();
             }
