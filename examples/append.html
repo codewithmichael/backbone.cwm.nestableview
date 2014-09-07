@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example: Replace and Nest | Backbone.CWM.NestableView</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <!-- Required Libraries -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/underscore/underscore.js"></script>
+    <script src="../node_modules/backbone/backbone.js"></script>
+    <script src="../nestableview.js"></script>
+
+    <!-- App -->
+    <script>
+      // Create an application view
+      var AppView = Backbone.CWM.NestableView.extend({
+        template: _.template('Look, some buttons! <div class="button-container"></div>')
+      });
+
+      // Create a generic button view
+      var ButtonView = Backbone.CWM.NestableView.extend({
+        tagName: 'button',
+        template: _.template('Button')
+      });
+
+      // Instantiate the application view
+      var appView = new AppView({ el: '#app' });
+
+      // Add a few buttons to the matched element
+      appView.addView('.button-container', new ButtonView());
+      appView.addView('.button-container', new ButtonView());
+      appView.addView('.button-container', new ButtonView());
+
+      // Render the application view and all nested views
+      appView.render();
+    </script>
+
+  </body>
+</html>
