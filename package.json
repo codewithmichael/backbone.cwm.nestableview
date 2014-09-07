@@ -1,0 +1,26 @@
+{
+  "name": "backbone.cwm.nestableview",
+  "version": "0.1.0",
+  "description": "A nestable Backbone.View extension.",
+  "main": "view.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require ./nestableview.js  ./test/nestableview.spec.js"
+  },
+  "author": "Michael Spencer <code.with.michael@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codewithmichael/backbone.cwm.nestableview.git"
+  },
+  "github": "https://github.com/codewithmichael/backbone.cwm.nestableview",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^1.11.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "jsdom": "^1.0.0-pre.6",
+    "mocha": "^1.21.4"
+  }
+}

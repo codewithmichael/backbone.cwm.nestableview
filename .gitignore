@@ -1,0 +1,5 @@
+.DS_Store
+*.swp
+*.vi
+*.~
+/node_modules/

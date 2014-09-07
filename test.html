@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+
+    <div id="mocha"></div>
+    <div id="app"></div>
+
+    <!-- Prepare Test Environment -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>
+      mocha.setup({
+        ui: 'bdd'
+      });
+    </script>
+
+    <!-- Additional Required Libraries -->
+    <script src="node_modules/underscore/underscore.js"></script>
+    <script src="node_modules/backbone/backbone.js"></script>
+
+    <!-- Code to Test -->
+    <script src="nestableview.js"></script>
+
+    <!-- Tests -->
+    <script src="test/nestableview.spec.js"></script>
+
+    <!-- Run Tests -->
+    <script>mocha.run();</script>
+
+  </body>
+</html>
