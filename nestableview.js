@@ -44,7 +44,10 @@
           attachEnabled: true
         });
       } else {
-        throw new Error('NestableView.addView(): Unknown selector: ' + selector.toString());
+        throw new Error('Unknown selector: ' + selector.toString());
+      }
+      if (!meta.view) {
+        throw new Error('View required');
       }
       if (!this.views) { this.views = []; }
       this.views.push(meta);

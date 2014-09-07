@@ -66,10 +66,10 @@ If you prefer object notation, you can specify the fields by name.
 
 ```javascript
 appView.addView({
-  selector: '.button-goes-here',
-  view:     new ButtonView(),
-  replace:  true
+  selector: '.button-goes-here',  // optional: default = ''
+  view:     new ButtonView(),     // required
+  replace:  true                  // optional: default = false
 });
 ```
 
-Any undefined fields will revert to their defaults.
+Optional undefined fields will revert to their defaults.
