@@ -26,13 +26,26 @@
     },
 
     addView: function(selector, view, replace) {
-      var meta = {
-        selector: selector || '',
-        view: view,
-        replace: !!replace,
-        renderEnabled: true,
-        attachEnabled: true
-      };
+      var meta;
+      if (selector == null || _.isString(selector)) {
+        meta = {
+          selector: selector || '',
+          view: view,
+          replace: !!replace,
+          renderEnabled: true,
+          attachEnabled: true
+        };
+      } else if (_.isObject(selector)) {
+        meta = _.defaults(selector, {
+          selector: '',
+          view: null,
+          replace: false,
+          renderEnabled: true,
+          attachEnabled: true
+        });
+      } else {
+        throw new Error('NestableView.addView(): Unknown selector: ' + selector.toString());
+      }
       if (!this.views) { this.views = []; }
       this.views.push(meta);
       return meta;

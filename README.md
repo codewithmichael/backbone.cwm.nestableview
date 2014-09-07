@@ -59,3 +59,17 @@ appView.render();
 ```
 
 In case of multiple matched elements, it will replace the first one found. If multiple views are added with the same selector, they will replace each matched element in sequence.
+
+**Alternate addView() syntax:**
+
+If you prefer object notation, you can specify the fields by name.
+
+```javascript
+appView.addView({
+  selector: '.button-goes-here',
+  view:     new ButtonView(),
+  replace:  true
+});
+```
+
+Any undefined fields will revert to their defaults.
