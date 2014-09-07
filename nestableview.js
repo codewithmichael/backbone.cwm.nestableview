@@ -85,6 +85,7 @@
             var selector = meta.selector || '';
             var $selectorEl = selector ? this.$el.find(selector) : this.$el;
             if ($selectorEl.length) {
+              $selectorEl = $selectorEl.first();
               if (meta.replace && selector) {
                 // Attached views
                 // Replace the selector element with the view element
