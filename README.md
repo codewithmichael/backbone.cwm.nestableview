@@ -3,8 +3,8 @@ Backbone.CWM.NestableView
 
 A nestable Backbone.View extension.
 
-Use
----
+Usage
+-----
 
 **Append a view to an existing element:**
 
