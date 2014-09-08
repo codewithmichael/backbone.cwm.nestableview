@@ -233,9 +233,10 @@ describe('Backbone.CWM.NestableView', function() {
               outerView.addView(null, buttonView, true);
             });
 
-            it('should render the child view as a direct child element of the parent view', function() {
+            it('should render but not attach the child view', function() {
               outerView.render();
-              expect(outerView.$el.children('button')).to.have.length(1);
+              expect(buttonView.$el.html()).to.equal('Click Me');
+              expect(outerView.$el.find('button')).to.have.length(0);
             });
           });
 
@@ -257,9 +258,10 @@ describe('Backbone.CWM.NestableView', function() {
               outerView.addView('', buttonView, true);
             });
 
-            it('should render the child view as a direct child element of the parent view', function() {
+            it('should render but not attach the child view', function() {
               outerView.render();
-              expect(outerView.$el.children('button')).to.have.length(1);
+              expect(buttonView.$el.html()).to.equal('Click Me');
+              expect(outerView.$el.find('button')).to.have.length(0);
             });
           });
 

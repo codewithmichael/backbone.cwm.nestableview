@@ -61,7 +61,7 @@
         for (var i = this.views.length - 1; i >= 0; i--) {
           var meta = this.views[i];
           var selector = meta.selector || '';
-          if (meta.replace && selector) {
+          if (meta.replace) {
             // Attached views
             meta.view.$el.detach();
           } else {
@@ -102,10 +102,12 @@
             var $selectorEl = selector ? this.$el.find(selector) : this.$el;
             if ($selectorEl.length) {
               $selectorEl = $selectorEl.first();
-              if (meta.replace && selector) {
-                // Attached views
-                // Replace the selector element with the view element
-                $selectorEl.replaceWith(meta.view.el);
+              if (meta.replace) {
+                if (selector) {
+                  // Attached views
+                  // Replace the selector element with the view element
+                  $selectorEl.replaceWith(meta.view.el);
+                }
               } else {
                 // Nested views
                 // Append the fragment to the selector element (if it hasn't already been added)
