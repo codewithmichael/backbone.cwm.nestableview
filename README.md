@@ -104,4 +104,4 @@ appView.render();
 appView.render();
 ```
 
-In the example above, the application view is rendered 5 times, but the child view is only rendered once, even though it continues to be displayed in each render of the application view.
+In the example above, the application view is rendered 5 times, but the child view is only rendered once, even though it continues to be displayed in each subsequent render of the application view.
