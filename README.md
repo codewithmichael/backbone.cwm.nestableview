@@ -82,8 +82,6 @@ Optional undefined fields will revert to their defaults.
 
 Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This ca be accomplished by disabling rendering of the child view after the first render.
 
-In the example below, the parent is rendered 5 times, but the child view is only rendered once, even though it continues to be present in each parent render.
-
 ```javascript
 ...
 
@@ -105,3 +103,5 @@ appView.render();
 appView.render();
 appView.render();
 ```
+
+In the example above, the application view is rendered 5 times, but the child view is only rendered once, even though it continues to be displayed in each render of the application view.
