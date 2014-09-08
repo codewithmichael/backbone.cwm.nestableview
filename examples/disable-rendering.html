@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example: Replace and Nest | Backbone.CWM.NestableView</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <!-- Required Libraries -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/underscore/underscore.js"></script>
+    <script src="../node_modules/backbone/backbone.js"></script>
+    <script src="../nestableview.js"></script>
+
+    <!-- App -->
+    <script>
+      // Create a view that counts the number of times it has been rendered
+      var RenderCountView = Backbone.CWM.NestableView.extend({
+        initialize: function() {
+          this.model = this.model || new Backbone.Model();
+          this.model.set('renderCount', 0);
+        },
+        render: function() {
+          this.model.set('renderCount', this.model.get('renderCount') + 1);
+          return Backbone.CWM.NestableView.prototype.render.apply(this, arguments);
+        }
+      });
+
+      // Create an application view
+      var AppView = RenderCountView.extend({
+        template: _.template('<div>AppView: I have been rendered <%- data.renderCount %> time(s)</div>')
+      });
+
+      // Create a generic child view
+      var ChildView = RenderCountView.extend({
+        template: _.template('ChildView: I have been rendered <%- data.renderCount %> time(s)')
+      });
+
+      // Instantiate the application view
+      var appView = new AppView({ el: '#app' });
+
+      // Add a child view
+      var childViewMeta = appView.addView(null, new ChildView());
+
+      // Render the application view and all nested views
+      appView.render();
+
+      // Disable rendering of the child view
+      childViewMeta.renderEnabled = false;
+
+      // Render the application view a few more times
+      appView.render();
+      appView.render();
+      appView.render();
+      appView.render();
+    </script>
+
+  </body>
+</html>
