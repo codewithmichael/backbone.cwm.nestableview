@@ -80,7 +80,7 @@ Optional undefined fields will revert to their defaults.
 
 **Disable child rendering:**
 
-Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This ca be accomplished by disabling rendering of the child view after the first render.
+Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This can be accomplished by disabling rendering of the child view after the first render.
 
 ```javascript
 ...
