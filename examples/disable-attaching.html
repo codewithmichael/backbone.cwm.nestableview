@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example: Disable Attaching | Backbone.CWM.NestableView</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <!-- Required Libraries -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/underscore/underscore.js"></script>
+    <script src="../node_modules/backbone/backbone.js"></script>
+    <script src="../nestableview.js"></script>
+
+    <!-- App -->
+    <script>
+      // Create an application view
+      var AppView = Backbone.CWM.NestableView.extend({
+        template: _.template('<div class="child-goes-here">The child view is not attached.</div>')
+      });
+
+      // Create a generic child view
+      var ChildView = Backbone.CWM.NestableView.extend({
+        template: _.template('I am the child view.')
+      });
+
+      // Instantiate the application view
+      var appView = new AppView({ el: '#app' });
+
+      // Add a child view
+      var childViewMeta = appView.addView('.child-goes-here', new ChildView(), true);
+
+      // Render the application view on a loop, flipping attachEnabled each time
+      var renderFlip = function() {
+        console.log('here');
+        // Render
+        appView.render();
+        // Flip attaching of the child view
+        childViewMeta.attachEnabled = !childViewMeta.attachEnabled;
+        setTimeout(renderFlip, 1500);
+      };
+      renderFlip();
+    </script>
+
+  </body>
+</html>

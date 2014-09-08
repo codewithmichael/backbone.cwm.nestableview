@@ -90,7 +90,7 @@ appView.addView({
 
 Optional undefined fields will revert to their defaults.
 
-**Disable child rendering:**
+**Disable child view rendering:**
 
 Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This can be accomplished by disabling rendering of the child view after the first render.
 
@@ -117,3 +117,38 @@ appView.render();
 ```
 
 In the example above, the application view is rendered 5 times, but the child view is only rendered once, even though it continues to be displayed in each subsequent render of the application view.
+
+**Disable child view attaching:**
+
+This is a slightly more advanced topic.
+
+Similar to disabling rendering, the act of attaching a child view can be disabled for upcoming render cycles. This is useful if you want to hide a normally child view that would normally be appended.
+
+In the case of a child view that normally replaces an element, disabling attaching may be desirable if you want to temporarily fall back to the default element or swap in another child view.
+
+In most cases you will also want to disable rendering at the same time, but it's not strictly required. If rendering of the child view is not disabled it will continue to render in the background while remaining detached from the DOM.
+
+```javascript
+...
+
+// Instantiate the application view
+var appView = new AppView({ el: '#app' });
+
+// Add a child view
+var childViewMeta = appView.addView(null, new ChildView());
+
+// Render the application view and all nested views
+appView.render();
+
+// Disable attaching of the child view (it will be hidden for the next render)
+childViewMeta.attachEnabled = false;
+
+// Render the application view -- child view is hidden
+appView.render();
+
+// Enable attaching of the child view (it will be visible for the next render)
+childViewMeta.attachEnabled = true;
+
+// Render the application view -- child view is visible
+appView.render();
+```
