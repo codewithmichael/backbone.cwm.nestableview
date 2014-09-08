@@ -30,7 +30,7 @@ appView.addView('.button-container', new ButtonView());
 appView.render();
 ```
 
-If the selector is *null*, *undefined*, or an empty string then the view will be appended directly to the parent view's element. Example:
+If the selector is `null`, `undefined`, or an empty string then the view will be appended directly to the parent view's element. Example:
 
 ```javascript
 ...
@@ -42,7 +42,7 @@ appView.addView(null, new ButtonView());
 
 ### Add a view, replacing an existing element
 
-This is exactly the same as appending, but add *true* to the *addView()* arguments.
+This is exactly the same as appending, but add `true` to the `addView()` arguments.
 
 ```javascript
 // Create an application view
@@ -68,7 +68,7 @@ appView.render();
 
 In case of multiple matched elements, it will replace the first one found. If multiple views are added with the same selector, they will replace each matched element in sequence.
 
-If the selector is *null*, *undefined*, or an empty string then the child view will still be rendered in the background but, since it cannot safely replace the parent view, it will not be attached to the DOM and will not be displayed.
+If the selector is `null`, `undefined`, or an empty string then the child view will still be rendered in the background but, since it cannot safely replace the parent view, it will not be attached to the DOM and will not be displayed.
 
 ### Alternate addView() syntax
 
@@ -168,4 +168,4 @@ npm test
 
 ### Browser
 
-If you prefer to view the tests in a browser, or want to run the tests in a specific browser, install the dependencies via `npm` (as shown above) and then open *test.html* in your preferred browser.
+If you prefer to view the tests in a browser, or want to run the tests in a specific browser, install the dependencies via `npm` (as shown above) and then open `test.html` in your preferred browser.
