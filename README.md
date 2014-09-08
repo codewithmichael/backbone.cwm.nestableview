@@ -33,11 +33,7 @@ appView.render();
 If the selector is `null`, `undefined`, or an empty string then the view will be appended directly to the parent view's element. Example:
 
 ```javascript
-...
-
 appView.addView(null, new ButtonView());
-
-...
 ```
 
 ### Add a view, replacing an existing element
@@ -75,15 +71,11 @@ If the selector is `null`, `undefined`, or an empty string then the child view w
 If you prefer object notation, you can specify the fields by name.
 
 ```javascript
-...
-
 appView.addView({
   selector: '.button-goes-here',  // optional: default = ''
   view:     new ButtonView(),     // required
   replace:  true                  // optional: default = false
 });
-
-...
 ```
 
 Optional undefined fields will revert to their defaults.
@@ -93,8 +85,6 @@ Optional undefined fields will revert to their defaults.
 Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This can be accomplished by disabling rendering of the child view after the first render.
 
 ```javascript
-...
-
 // Instantiate the application view
 var appView = new AppView({ el: '#app' });
 
@@ -127,8 +117,6 @@ In the case of a child view that normally replaces an element, disabling attachi
 In most cases you will also want to disable rendering at the same time, but it's not strictly required. If rendering of the child view is not disabled it will continue to render in the background while remaining detached from the DOM.
 
 ```javascript
-...
-
 // Instantiate the application view
 var appView = new AppView({ el: '#app' });
 
