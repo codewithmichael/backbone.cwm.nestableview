@@ -32,6 +32,16 @@ appView.addView('.button-container', new ButtonView());
 appView.render();
 ```
 
+If the selector is *null*, *undefined*, or and empty string then the view will be appended directly to the parent view's element. Example:
+
+```javascript
+...
+
+appView.addView(null, new ButtonView());
+
+...
+```
+
 **Add a view, replacing an existing element:**
 
 This is exactly the same as appending, but add *true* to the *addView()* arguments.
