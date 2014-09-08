@@ -122,7 +122,7 @@ In the example above, the application view is rendered 5 times, but the child vi
 
 This is a slightly more advanced topic.
 
-Similar to disabling rendering, the act of attaching a child view can be disabled for upcoming render cycles. This is useful if you want to hide a normally child view that would normally be appended.
+Similar to disabling rendering, the act of attaching a child view can be disabled for upcoming render cycles. This is useful if you want to hide a child view that would normally be appended.
 
 In the case of a child view that normally replaces an element, disabling attaching may be desirable if you want to temporarily fall back to the default element or swap in another child view.
 
