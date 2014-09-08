@@ -1,12 +1,10 @@
-Backbone.CWM.NestableView
-=========================
+# Backbone.CWM.NestableView
 
 A nestable Backbone.View extension.
 
-Usage
------
+## Usage
 
-**Append a view to an existing element:**
+### Append a view to an existing element
 
 ```javascript
 // Create an application view
@@ -42,7 +40,7 @@ appView.addView(null, new ButtonView());
 ...
 ```
 
-**Add a view, replacing an existing element:**
+### Add a view, replacing an existing element
 
 This is exactly the same as appending, but add *true* to the *addView()* arguments.
 
@@ -72,7 +70,7 @@ In case of multiple matched elements, it will replace the first one found. If mu
 
 If the selector is *null*, *undefined*, or an empty string then the child view will still be rendered in the background but, since it cannot safely replace the parent view, it will not be attached to the DOM and will not be displayed.
 
-**Alternate addView() syntax:**
+### Alternate addView() syntax
 
 If you prefer object notation, you can specify the fields by name.
 
@@ -90,7 +88,7 @@ appView.addView({
 
 Optional undefined fields will revert to their defaults.
 
-**Disable child view rendering:**
+### Disable child view rendering
 
 Sometimes you may only want to render a child view once but still want subsequent renders of the parent view to contain the child view. This can be accomplished by disabling rendering of the child view after the first render.
 
@@ -118,7 +116,7 @@ appView.render();
 
 In the example above, the application view is rendered 5 times, but the child view is only rendered once, even though it continues to be displayed in each subsequent render of the application view.
 
-**Disable child view attaching:**
+### Disable child view attaching
 
 This is a slightly more advanced topic.
 
@@ -153,14 +151,13 @@ childViewMeta.attachEnabled = true;
 appView.render();
 ```
 
-Testing
--------
+## Testing
 
 The test suite is built on [Mocha](http://visionmedia.github.io/mocha/) and [Chai](http://chaijs.com/).
 
 Tests can be run either in the browser or via command line. Either way requires the [Node](http://nodejs.org/) development packages be installed first.
 
-**Terminal:**
+### Terminal
 
 Assuming Node and NPM are already installed, run the following in a terminal from the checked out directory to install the dependencies and run the tests:
 
@@ -169,6 +166,6 @@ npm install
 npm test
 ```
 
-**Browser:**
+### Browser
 
 If you prefer to view the tests in a browser, or want to run the tests in a specific browser, install the dependencies via `npm` (as shown above) and then open *test.html* in your preferred browser.
