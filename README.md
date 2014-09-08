@@ -152,3 +152,23 @@ childViewMeta.attachEnabled = true;
 // Render the application view -- child view is visible
 appView.render();
 ```
+
+Testing
+-------
+
+The test suite is built on [Mocha](http://visionmedia.github.io/mocha/) and [Chai](http://chaijs.com/).
+
+Tests can be run either in the browser or via command line. Either way requires the [Node](http://nodejs.org/) development packages be installed first.
+
+**Terminal:**
+
+Assuming Node and NPM are already installed, run the following in a terminal from the checked out directory to install the dependencies and run the tests:
+
+```
+npm install
+npm test
+```
+
+**Browser:**
+
+If you prefer to view the tests in a browser, or want to run the tests in a specific browser, install the dependencies via `npm` (as shown above) and then open *test.html* in your preferred browser.
