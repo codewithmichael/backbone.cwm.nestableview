@@ -14,9 +14,10 @@
     constructor: function(options) {
       if (options && options.views) {
         this.views = options.views;
-        delete options.views;
       }
-      if (_.isObject(this.views)) { this.views = _.result(this, 'views'); }
+      if (_.isFunction(this.views)) {
+        this.views = this.views(options);
+      }
       BaseView.apply(this, arguments);
     },
 
