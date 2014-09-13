@@ -44,6 +44,15 @@ describe('Backbone.CWM.NestableView', function() {
         );
       })
     });
+
+    describe('with a model', function() {
+      it('should render the default template with the provided data', function() {
+        var data = { abc: "xyz" };
+        expect(new NestableView({ model: data }).render().$el.html()).to.equal(
+          '[NestableView:{data:' + JSON.stringify(data) + '}]'
+        );
+      })
+    });
   })
 
   describe('custom view instance', function() {

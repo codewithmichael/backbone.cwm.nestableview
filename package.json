@@ -1,6 +1,6 @@
 {
   "name": "backbone.cwm.nestableview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A nestable Backbone.View extension.",
   "main": "view.js",
   "scripts": {

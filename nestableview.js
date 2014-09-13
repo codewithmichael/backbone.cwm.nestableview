@@ -1,5 +1,5 @@
 /*!
- * Backbone.CWM.NestableView v0.1.0
+ * Backbone.CWM.NestableView v0.1.1
  *
  * (c) 2014 Michael Spencer
  * Released under the MIT license
@@ -21,7 +21,7 @@
     },
 
     renderTemplate: function(data) {
-      data = data || (this.model && this.model.toJSON()) || {};
+      data = data || this.model || {};
       return this.template({ data: data });
     },
 
