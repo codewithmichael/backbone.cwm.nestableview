@@ -191,6 +191,33 @@ describe('Backbone.CWM.NestableView', function() {
       });
     });
 
+    describe('removal', function() {
+      var RemovableView, outerView, middleView, innerView, removeCount;
+
+      RemovableView = NestableView.extend({
+        template: _.template('<div class="nest"></div>'),
+        remove: function() {
+          removeCount++;
+          return NestableView.prototype.remove.apply(this, arguments);
+        }
+      });
+
+      beforeEach(function() {
+        removeCount = 0;
+        outerView = new RemovableView();
+        middleView = new RemovableView();
+        innerView = new RemovableView();
+        outerView.addView('.nest', middleView);
+        middleView.addView('.nest', innerView);
+      });
+
+      it('should remove each child view individually', function() {
+        outerView.render();
+        outerView.remove();
+        expect(removeCount).to.equal(3);
+      })
+    }),
+
     describe('events', function() {
       var outerView, innerView, buttonView;
 

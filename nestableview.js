@@ -1,5 +1,5 @@
 /*!
- * Backbone.CWM.NestableView v0.1.1
+ * Backbone.CWM.NestableView v0.2.0
  *
  * (c) 2014 Michael Spencer
  * Released under the MIT license
@@ -133,6 +133,13 @@
       this.attachViews();
       this.delegateEvents();
       return this;
+    },
+
+    remove: function() {
+      _.each(this.views, function(meta) {
+        meta.view && meta.view.remove();
+      });
+      return BaseView.prototype.remove.apply(this, arguments);
     }
   });
 
