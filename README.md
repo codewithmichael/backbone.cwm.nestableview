@@ -141,7 +141,7 @@ appView.render();
 
 ## Testing
 
-The test suite is built on [Mocha](http://visionmedia.github.io/mocha/) and [Chai](http://chaijs.com/).
+The test suite is built on [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/).
 
 Tests can be run either in the browser or via command line. Either way requires the [Node](http://nodejs.org/) development packages be installed first.
 
